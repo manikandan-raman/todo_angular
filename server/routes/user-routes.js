@@ -6,6 +6,8 @@ router.get('/test',user_controller.test);
 
 router.post('/signup',user_controller.signup);
 
+router.post('/login',user_controller.login);
+
 router.get('/:id',user_controller.user);
 
 router.put('/update/:id',user_controller.update);

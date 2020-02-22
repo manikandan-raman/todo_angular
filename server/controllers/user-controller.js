@@ -23,6 +23,17 @@ exports.signup = ((req, res) => {
     })
 });
 
+exports.login = ((req, res) => {
+    User.find({
+        $and : [
+            { $or : [ { user_email : req.body.username }, { user_phone : req.body.username } ] }
+        ], user_password:req.body.password
+    }).toArray((err, User) => {
+        if(err) throw err;
+        res.send(User);
+    })
+})
+
 exports.user = ((req, res) => {
     User.findById(req.params.id, (err, User) => {
         if(err) throw err;
