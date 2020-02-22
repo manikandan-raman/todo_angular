@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <div>
+      <mat-form-field>
+        <input type="text" placeholder="User Name" formControlName="user_name" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="text" placeholder="Email" formControlName="user_email" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="text" placeholder="Phone" formControlName="user_phone" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="password" placeholder="Password" formControlName="user_password" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button type="submit">Login</button>
+    </div>
+  </form>
+</div>
+<div>
+  If you're already a registered user <a routerLink="/login">Login</a>
+</div>
