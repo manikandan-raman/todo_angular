@@ -8,4 +8,4 @@ const userSchema = mongoose.Schema({
     user_createdon: { type: Date, require: true }
 });
 
-mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
