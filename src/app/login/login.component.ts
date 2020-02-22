@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   loginUser(){
     if(this.loginForm.valid){
       this.service.login(this.loginForm.value).subscribe(data => {
-        if(data.status == 1){
+        if(data){
           this.router.navigate(['todo']);
         }
       });
