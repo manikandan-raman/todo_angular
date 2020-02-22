@@ -24,15 +24,18 @@ exports.signup = ((req, res) => {
 });
 
 exports.login = ((req, res) => {
-    User.find({
-        $and : [
-            { $or : [ { user_email : req.body.username }, { user_phone : req.body.username } ] }
-        ], user_password:req.body.password
-    }).toArray((err, User) => {
-        if(err) throw err;
-        res.send(User);
-    })
-})
+    console.log(req.body);
+    User.find(
+        { 
+            user_phone: req.body.username, 
+            user_password : req.body.password 
+        }
+    ).then((user) => {
+        res.json(user);
+    }).catch(err => {
+        res.status(500).json(err)
+      })
+});
 
 exports.user = ((req, res) => {
     User.findById(req.params.id, (err, User) => {
